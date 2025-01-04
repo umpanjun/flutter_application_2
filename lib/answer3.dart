@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
+class Answer3Page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.orange,
@@ -43,7 +40,6 @@ class MyApp extends StatelessWidget {
                     name: 'MacBook Pro 16"',
                     price: '69,900 THB',
                   ),
-
                   // สินค้า 2
                   ProductCard(
                     imageUrl: 'assets/images/smartphone.jpg',
@@ -63,6 +59,24 @@ class MyApp extends StatelessWidget {
                     price: '69,299 THB',
                   ),
                 ],
+              ),
+            ),
+            const SizedBox(height: 16),
+            // ปุ่มกลับไปหน้าหลัก
+            Center(
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context); // กลับไปหน้า MyAnswerPage
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.orange,
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 24, vertical: 12), // เพิ่ม padding
+                ),
+                child: const Text(
+                  'กลับไปหน้าหลัก',
+                  style: TextStyle(fontSize: 16),
+                ),
               ),
             ),
           ],

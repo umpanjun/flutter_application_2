@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/layout4.dart';
+import 'package:flutter_application_2/first_page.dart';
+import 'package:flutter_application_2/answer4.dart';
 
 
 
@@ -12,7 +13,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: ProfileApp(),
+      debugShowCheckedModeBanner: false,
+      home: ans_navi(),
     );
   }
 }

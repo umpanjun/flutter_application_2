@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(ProfileApp());
-}
-
-class ProfileApp extends StatelessWidget {
+class Answer4Page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -79,35 +75,55 @@ class ProfilePage extends StatelessWidget {
           // Buttons
           Padding(
             padding: const EdgeInsets.all(16.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            child: Column(
               children: [
-                Expanded(
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // เปิดหน้าแก้ไขโปรไฟล์
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => EditProfilePage(),
-                        ),
-                      );
-                    },
-                    child: Text('Edit Profile'),
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          // เปิดหน้าแก้ไขโปรไฟล์
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => EditProfilePage(),
+                            ),
+                          );
+                        },
+                        child: Text('Edit Profile'),
+                      ),
+                    ),
+                    SizedBox(width: 16),
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          // ตัวอย่าง: แสดงข้อความ "Logged Out"
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text('Logged Out')),
+                          );
+                        },
+                        style:
+                            ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                        child: Text('Logout'),
+                      ),
+                    ),
+                  ],
                 ),
-                SizedBox(width: 16),
-                Expanded(
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // ตัวอย่าง: แสดงข้อความ "Logged Out"
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('Logged Out')),
-                      );
-                    },
-                    style:
-                        ElevatedButton.styleFrom(backgroundColor: Colors.red),
-                    child: Text('Logout'),
+                SizedBox(height: 16),
+                // ปุ่มกลับไปหน้าหลัก
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(context); // กลับไปหน้าหลัก
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.orange,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 24, vertical: 12), // เพิ่ม padding
+                  ),
+                  child: const Text(
+                    'กลับไปหน้าหลัก',
+                    style: TextStyle(fontSize: 16),
                   ),
                 ),
               ],

@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
+class Answer2Page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.orange,
@@ -90,6 +87,24 @@ class MyApp extends StatelessWidget {
                     ),
                   ),
                 ],
+              ),
+              const SizedBox(height: 20),
+              // ปุ่มกลับไปหน้าหลัก
+              Center(
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(context); // กลับไปหน้า MyAnswerPage
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.orange,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 24, vertical: 12), // เพิ่ม padding
+                  ),
+                  child: const Text(
+                    'กลับไปหน้าหลัก',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                ),
               ),
             ],
           ),
